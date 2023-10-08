@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+#myDIV {
+  color: dark;
+}
+</style>
+</head>
+<body>
+<h3 class="text-center">Fill your information for Seat booking </h3>
+<div class="container">
+
+  <div class="row text-center">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <form>
+            <div class="row mb-3">
+                <label for="inputName" class="col-sm-2 col-form-label">Full Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputName">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputEmail" class="col-sm-2 col-form-label">E-mail:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputContact" class="col-sm-2 col-form-label">Contact No:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputContact">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputAddress" class="col-sm-2 col-form-label">Address (optional):</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputAddress">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                        I agree with all information is True
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url 'payment'%}" type="submit" class="btn btn-success">Proceed</a>
+            <a href="{% url 'index' %}"type="submit" class="btn btn-danger">Go Back</a>
+        </form>
+    </div>
+    <div class="col-2"></div>
+  </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+
+</script>
+</body>
+</html>
