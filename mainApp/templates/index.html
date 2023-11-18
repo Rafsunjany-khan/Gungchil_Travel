@@ -84,19 +84,20 @@
         <div class="col-6">
             <div class="row mb-2">
                  <div class="col-sm-12">
-                     {% for y in travel %}
+                     {% for x in travel %}
                      <div class="card mt-2">
                         <div class="card-body">
                             <div class="row card-title">
-                                <div class="col-8 text-center"><h5>Date: {{y.travelDate}}</h5></div>
-                                <div class="col-4"><h5>Time: {{y.timeSchedule}}</h5></div>
+                                <div class="col-6 text-center"><h5>Date: {{x.travelDate}}</h5></div>
+                                <div class="col-3 text-center"><h5>PNR No: {{x.pnrNo}}</h5></div>
+                                <div class="col-3"><h5>Time: {{x.timeSchedule}}</h5></div>
                             </div>
                             <div class="row">
-                                <div class="col-4"><h6>Departure: <span style="text-transform:uppercase;">{{y.departure}}</span> </h6></div>
-                                <div class="col-4"><h6>Destination: <span style="text-transform:uppercase;">{{y.destination}}</span> </h6></div>
-                                <div class="col-4"><h6 id="price">Price: {{y.price | floatformat:-2}} <span>৳</span> </h6></div>
+                                <div class="col-4"><h6>Departure: <span style="text-transform:uppercase;">{{x.departure}}</span> </h6></div>
+                                <div class="col-4"><h6>Destination: <span style="text-transform:uppercase;">{{x.destination}}</span> </h6></div>
+                                <div class="col-4"><h6 id="price">Price: {{x.price}}<span>৳</span> </h6></div>
                             </div>
-                            <p class="card-text">Bus No: {{y.busNo}}</p>
+                            <p class="card-text">Bus No: {{x.busNo}}</p>
                             <div class="row">
                                 <div class="col-4">
                                     <a href="#" class="btn btn-light text-left">Available Seat: 29</a>
@@ -106,127 +107,130 @@
                                     <a href="#"  class="btn btn-info" onclick="myRoute()">Route</a>
                                 </div>
                                 <div class="col-6">
-                                    <button type="button"  class="collapsible">View Seat</button>
+                                    <a href="{% url 'viewSeat' %}" type="button"  class="collapsible">View Seat</a>
                                     <div class="content">
                                           <div class="row p-2">
-                                                <table class="table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">Gate</th>
-                                                            <th scope="col">Driver</th>
-                                                        </tr>
-                                                    </thead>
-                                                <tbody>
-                                                 <tr>
-                                                    <th scope="row">
-        <button type="button" id="myDIV"  onclick="myFunction()" class="btn btn-light">A1</button>
-        <button type="button" class="btn btn-light">A2</button></th>
-                                                    <th scope="row">
-                                                        <button type="button" class="btn btn-light">A3</button>
-                                                        <button type="button" class="btn btn-light">A4</button>
-                                                    </th>
+<!--                                                <table class="table">-->
+<!--                                                    <thead>-->
+<!--                                                        <tr>-->
+<!--                                                            <th scope="col">Gate</th>-->
+<!--                                                            <th scope="col">Driver</th>-->
+<!--                                                        </tr>-->
+<!--                                                    </thead>-->
+<!--                                                    <tbody>-->
+<!--                                                    <form method="post" action="{% url 'index' %}">-->
+<!--                                                        {% csrf_token %}-->
+<!--                                                        <tr>-->
+<!--                                                    <th scope="row" name="seat">-->
+<!--                                                        <button type="button" value="a1" class="btn btn-light">A1</button>-->
+<!--                                                        <button type="button" value="a2" class="btn btn-light">A2</button></th>-->
+<!--                                                    <th scope="row">-->
+<!--                                                        <button type="button" class="btn btn-light">A3</button>-->
+<!--                                                        <button type="button" class="btn btn-light">A4</button>-->
+<!--                                                    </th>-->
 
-    </tr>
-    <tr>
-      <th scope="row">
-        <button type="button" class="btn btn-light">B1</button>
-        <button type="button" class="btn btn-light">B2</button>
-      </th>
-      <th scope="row">
-        <button type="button" class="btn btn-light">B3</button>
-        <button type="button" class="btn btn-light">B4</button>
-      </th>
+<!--    </tr>-->
+<!--                                                        <tr>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">B1</button>-->
+<!--        <button type="button" class="btn btn-light">B2</button>-->
+<!--      </th>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">B3</button>-->
+<!--        <button type="button" class="btn btn-light">B4</button>-->
+<!--      </th>-->
 
-    </tr>
-    <tr>
-      <th scope="row">
-        <button type="button" class="btn btn-light">C1</button>
-        <button type="button" class="btn btn-light">C2</button>
-      </th>
-      <th scope="row">
-        <button type="button" class="btn btn-light">C3</button>
-        <button type="button" class="btn btn-light">C4</button>
-      </th>
+<!--    </tr>-->
+<!--                                                        <tr>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">C1</button>-->
+<!--        <button type="button" class="btn btn-light">C2</button>-->
+<!--      </th>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">C3</button>-->
+<!--        <button type="button" class="btn btn-light">C4</button>-->
+<!--      </th>-->
 
-    </tr>
-    <tr>
-      <th scope="row">
-        <button type="button" class="btn btn-dark">D1</button>
-        <button type="button" class="btn btn-light">D2</button>
-      </th>
-      <th scope="row">
-        <button type="button" class="btn btn-light">D3</button>
-        <button type="button" class="btn btn-dark">D4</button>
-      </th>
+<!--    </tr>-->
+<!--                                                        <tr>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-dark">D1</button>-->
+<!--        <button type="button" class="btn btn-light">D2</button>-->
+<!--      </th>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">D3</button>-->
+<!--        <button type="button" class="btn btn-dark">D4</button>-->
+<!--      </th>-->
 
-    </tr>
-    <tr>
-      <th scope="row">
-        <button type="button" class="btn btn-light">E1</button>
-        <button type="button" class="btn btn-light">E2</button>
-      </th>
-      <th scope="row">
-        <button type="button" class="btn btn-dark">E3</button>
-        <button type="button" class="btn btn-dark">E4</button>
-      </th>
+<!--    </tr>-->
+<!--                                                        <tr>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">E1</button>-->
+<!--        <button type="button" class="btn btn-light">E2</button>-->
+<!--      </th>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-dark">E3</button>-->
+<!--        <button type="button" class="btn btn-dark">E4</button>-->
+<!--      </th>-->
 
-    </tr>
-    <tr>
-      <th scope="row">
-        <button type="button" class="btn btn-light">F1</button>
-        <button type="button" class="btn btn-dark">F2</button></th>
-      <th scope="row">
-        <button type="button" class="btn btn-light">F3</button>
-        <button type="button" class="btn btn-dark">F4</button>
-      </th>
+<!--    </tr>-->
+<!--                                                        <tr>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">F1</button>-->
+<!--        <button type="button" class="btn btn-dark">F2</button></th>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">F3</button>-->
+<!--        <button type="button" class="btn btn-dark">F4</button>-->
+<!--      </th>-->
 
-    </tr>
-    <tr>
-      <th scope="row">
-        <button type="button" class="btn btn-light">G1</button>
-        <button type="button" class="btn btn-light">G2</button>
-      </th>
-      <th scope="row">
-        <button type="button" class="btn btn-light">G3</button>
-        <button type="button" class="btn btn-dark">G4</button>
-      </th>
+<!--    </tr>-->
+<!--                                                        <tr>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">G1</button>-->
+<!--        <button type="button" class="btn btn-light">G2</button>-->
+<!--      </th>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">G3</button>-->
+<!--        <button type="button" class="btn btn-dark">G4</button>-->
+<!--      </th>-->
 
-    </tr>
-    <tr>
-      <th scope="row">
-        <button type="button" class="btn btn-light">H1</button>
-        <button type="button" class="btn btn-light">H2</button>
-      </th>
-      <th scope="row">
-        <button type="button" class="btn btn-light">H3</button>
-        <button type="button" class="btn btn-light">H4</button>
-      </th>
+<!--    </tr>-->
+<!--                                                        <tr>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">H1</button>-->
+<!--        <button type="button" class="btn btn-light">H2</button>-->
+<!--      </th>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">H3</button>-->
+<!--        <button type="button" class="btn btn-light">H4</button>-->
+<!--      </th>-->
 
-    </tr>
-    <tr>
-      <th scope="row">
-        <button type="button" class="btn btn-dark">I1</button>
-        <button type="button" class="btn btn-dark">I2</button>
-      </th>
-      <th scope="row">
-        <button type="button" class="btn btn-dark">I3</button>
-        <button type="button" class="btn btn-dark">I4</button>
-      </th>
+<!--    </tr>-->
+<!--                                                        <tr>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-dark">I1</button>-->
+<!--        <button type="button" class="btn btn-dark">I2</button>-->
+<!--      </th>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-dark">I3</button>-->
+<!--        <button type="button" class="btn btn-dark">I4</button>-->
+<!--      </th>-->
 
-    </tr>
-    <tr>
-      <th scope="row">
-        <button type="button" class="btn btn-light">J1</button>
-        <button type="button" class="btn btn-light">J2</button>
-      </th>
-      <th scope="row">
-        <button type="button" class="btn btn-light">J3</button>
-        <button type="button" class="btn btn-light">J4</button>
-      </th>
+<!--    </tr>-->
+<!--                                                        <tr>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">J1</button>-->
+<!--        <button type="button" class="btn btn-light">J2</button>-->
+<!--      </th>-->
+<!--      <th scope="row">-->
+<!--        <button type="button" class="btn btn-light">J3</button>-->
+<!--        <button type="button" class="btn btn-light">J4</button>-->
+<!--      </th>-->
 
-    </tr>
-  </tbody>
-          </table>
+<!--    </tr>-->
+<!--                                                    </form>-->
+<!--                                                    </tbody>-->
+<!--                                                </table>-->
                                             </div>
                                               <div class="row">
                                                   <a href="{% url 'book' %}" class="btn btn-primary">booking</a>
