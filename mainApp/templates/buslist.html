@@ -16,7 +16,7 @@
       <th scope="col">Type</th>
       <th scope="col">Registration No</th>
       <th scope="col">Bus Color</th>
-      <th scope="col">-------</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
       {% for x in bus %}
@@ -27,8 +27,8 @@
       <td>{{x.registrationNo}}</td>
       <td>{{x.color}}</td>
       <td>
-        <button type="button">Update</button>
-        <button type="button">Delete</button>
+          <input type="button" value="Update" class="btn btn-info">
+          <input type="button" value="Delete" class="btn btn-danger">
       </td>
     </tr>
   </tbody>

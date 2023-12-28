@@ -11,41 +11,38 @@
     <div class="row bg-primary mt-3 p-2">
         <h4 class="text-center text-white">Your Ticket Page</h4>
     </div>
-    {% for yy in ticket %}
     <div class="card mt-2 ">
         <div class="card-body bg-light">
             <div class="row">
-        <div class="col-4">Issue Date: {{yy.issueDate}}</div>
-        <div class="col-4">Issue From: {{yy.issueFrom}} </div>
-        <div class="col-4">Issued By : {{yy.issuedBy}} </div>
+        <div class="col-4">Issue Date: </div>
+        <div class="col-4">Issue From:  </div>
+        <div class="col-4">Issued By : {{issue}} </div>
     </div>
             <div class="row mt-2">
-                <div class="col-4"> <h5>Name: {{yy.name}}</h5></div>
-                <div class="col-4"><h5>Ticket No: 00000{{yy.ticketNo}}</h5></div>
-                <div class="col-4"> <h5>Journey: {{yy.travelDate}}</h5></div>
+                <div class="col-4"> <h5>Name: {{name}}</h5></div>
+                <div class="col-4"><h5>Ticket No: 000001</h5></div>
+                <div class="col-4"> <h5>Journey: {{date}}</h5></div>
             </div>
             <div class="row">
-                <div class="col-4"><h5>Contact No: {{yy.contactNo}}</h5></div>
-                <div class="col-4"> <h5>BUS PNR: {{yy.pnrNo}}</h5></div>
-                <div class="col-4"><h5>Time: {{yy.timeSchedule}}</h5></div>
+                <div class="col-4"><h5>Contact No: {{contact}}</h5></div>
+                <div class="col-4"> <h5>BUS PNR: {{pnr}}</h5></div>
+                <div class="col-4"><h5>Time: {{time}}</h5></div>
             </div>
             <div class="row">
                 <div class="col-4">
-                    <div class="row"><h5>Departure: {{yy.departure}}</h5></div>
-                    <div class="row">
-                        <div class="col-6"><h5>Destination: {{yy.destination}}</h5></div>
-                        <div class="col-6"><h5>Ticket Pnr: {{yy.customerPnr}}</h5></div>
-                    </div>
+                    <div class="row"><h5>Departure: {{departure}}</h5></div>
+                    <div class="row"><h5>Destination: {{destination}}</h5></div>
                 </div>
                 <div class="col-4">
-                    <div class="row"><h5>Bus No:{{yy.busNo}}</h5></div>
+                    <div class="row"><h5>Bus No:{{busno}}</h5></div>
                 </div>
                 <div class="col-4">
-                    <div class="row"><h5>Seat No:{{yy.seatNo}}</h5></div>
+                    <div class="row"><h5>Seat No:{{seat}}</h5></div>
+                    <div class="row"><h5>E-mail:{{email}}</h5></div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-8"><h5>Price: {{yy.price}}</h5></div>
+                <div class="col-8"><h5>Price: {{price}}</h5></div>
                 <div class="col-4"><h6>Payment Method: Bkash</h6></div>
             </div>
             <div class="row">
@@ -58,7 +55,7 @@
 </div>
         </div>
     </div>
-    {% endfor %}
+
 </div>
 </body>
 </html>

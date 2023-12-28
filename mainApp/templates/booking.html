@@ -4,57 +4,91 @@
     <meta charset="UTF-8">
     <title>Book</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<style>
-#myDIV {
-  color: dark;
-}
-</style>
 </head>
 <body>
-<h3 class="text-center">Fill your information for Seat booking </h3>
+<h3 class="text-center bg-dark text-light p-3">Fill your information for Seat booking </h3>
 <div class="container">
 
   <div class="row text-center">
     <div class="col-2"></div>
     <div class="col-8">
-        <form action="#" method="post">
+        <div class="row">
+                <div class="col-4 mb-2">
+                    <input type="text" value="PNR NO: {{pnr}}" name="pnr" class="form-control text-light text-center bg-secondary">
+                </div>
+                <div class="col-4 mb-2">
+                    <input type="text" value="BUS NO: {{bus}}" name="bus" class="form-control text-light text-center bg-secondary">
+                </div>
+                <div class="col-4 mb-2">
+                    <input type="text" value="SEAT NO: {{seat}}" name="seat" class="form-control text-light text-center bg-secondary">
+                </div>
+            </div>
+        <form action="{% url 'test1' %}" method="post">
             {% csrf_token %}
-            <div class="row mb-3">
-                <label for="inputName" class="col-sm-2 col-form-label">Full Name:</label>
-                <div class="col-sm-10">
-                    <input type="text" name="fullname" class="form-control" id="inputName">
+            <div class="row mb-2">
+                <div class="col-3 bg-light">
+                    <button type="button" class="btn"><h5>Issued By:</h5></button>
+                </div>
+                <div class="col-9">
+                    <select class="form-select" id="sel1" name="issue">
+                 {% for x in issued %}
+                <option>{{x.name}}</option>
+                 {% endfor %}
+             </select>
                 </div>
             </div>
-            <div class="row mb-3">
-                <label for="inputEmail" class="col-sm-2 col-form-label">E-mail:</label>
-                <div class="col-sm-10">
-                    <input type="email" name="email" class="form-control" id="inputEmail">
+            <div class="row mb-2">
+                <div class="col-3 bg-light">
+                    <button type="button" class="btn"><h5>Full Name:</h5></button>
+                </div>
+                <div class="col-9">
+            <input type="text" name="fullName" class="form-control" placeholder="Full Name">
                 </div>
             </div>
-            <div class="row mb-3">
-                <label for="inputContact" class="col-sm-2 col-form-label">Contact No:</label>
-                <div class="col-sm-10">
-                    <input type="text" name="contactno" class="form-control" id="inputContact">
+            <div class="row mb-2">
+                <div class="col-3 bg-light">
+                    <button type="button" class="btn"><h5>Contact No:</h5></button>
+                </div>
+                <div class="col-9">
+            <input type="text" name="contactNo" class="form-control" placeholder="Contact No">
                 </div>
             </div>
-            <div class="row mb-3">
-                <label for="inputAddress" class="col-sm-2 col-form-label">Address (optional):</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputAddress">
+            <div class="row mb-2">
+                <div class="col-3 bg-light">
+                    <button type="button" class="btn"><h5>E-Mail:</h5></button>
+                </div>
+                <div class="col-9">
+            <input type="email" name="email" class="form-control" placeholder="Email">
                 </div>
             </div>
-<!--            <div class="row mb-3">-->
-<!--                <div class="col-sm-10 offset-sm-2">-->
-<!--                    <div class="form-check">-->
-<!--                        <input class="form-check-input" type="checkbox" id="gridCheck1">-->
-<!--                        <label class="form-check-label" for="gridCheck1">-->
-<!--                        I agree with all information is True-->
-<!--                        </label>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-            <a href="{% url 'payment'%}" type="submit" class="btn btn-success">Proceed</a>
-            <a href="{% url 'index' %}"type="submit" class="btn btn-danger">Go Back</a>
+            <div class="row mb-2">
+                <div class="col-3 bg-light">
+                    <button type="button" class="btn"><h5>Address:</h5></button>
+                </div>
+                <div class="col-9">
+            <input type="text" name="address" class="form-control" placeholder="Address">
+                </div>
+            </div>
+            <input type="hidden" name="pnr" value="{{pnr}}">
+            <input type="hidden" name="seat" value="{{seat}}">
+            <input type="hidden" name="tdate" value="{{tdate}}">
+            <input type="hidden" name="depar" value="{{departure}}">
+            <input type="hidden" name="dest" value="{{destination}}">
+            <input type="hidden" name="busno" value="{{bus}}">
+            <input type="hidden" name="time" value="{{time}}">
+            <input type="hidden" name="price" value="{{price}}">
+            <div class="row mt-2">
+                <div class="col-md-6"></div>
+                <div class="col-md-2 text-end">
+                    <input type="reset" value="Reset" class="btn btn-secondary">
+                </div>
+                <div class="col-md-2 text-center">
+                    <input type="submit" value="Submit" class="btn btn-success">
+                </div>
+                <div class="col-md-2 text-start">
+                    <button type="button" class="btn btn-warning">Go Back</button>
+                </div>
+            </div>
         </form>
     </div>
     <div class="col-2"></div>

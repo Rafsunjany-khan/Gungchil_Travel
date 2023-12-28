@@ -39,48 +39,23 @@
 }
 </style>
 </head>
+
 <body>
-<h4 class="text-center text-white bg-dark p-3">Gungchil Travel</h4>
+<h4>Search bus</h4>
+<!-- your_template.html -->
+<!--<form method="GET" action="{% url 'search' %}">-->
+<!--    <input type="date" name="d" value="{{ date }}">-->
+<!--    <input type="text" name="p" value="{{ query }}">-->
+<!--    <input type="text" name="q" value="{{ query1 }}">-->
+<!--    <button type="submit">Search</button>-->
+<!--</form>-->
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-5 text-center"><h5 class="bg-info p-2">Search Your Bus</h5></div>
-        <div class="col-7 text-center"><h5 class="bg-info p-2">Your Bus List</h5></div>
-    </div>
     <div class="row mt-3">
-        <div class="col-5 text-center">
-        <form method="GET" action="{% url 'search' %}">
-            <div class="row mb-2"><input type="date" name="d" value="{{ date }}"></div>
-            <div class="row mb-2"><input type="text" name="p" value="{{ query }}"></div>
-            <div class="row"><input type="text" name="q" value="{{ query1 }}"></div>
-<!--                <select class="form-select mt-2" aria-label="Default select example">-->
-<!--                    <option selected>Departure</option>-->
-<!--                    <option value="1">Bogura</option>-->
-<!--                    <option value="2">Rangpur</option>-->
-<!--                    <option value="3">Dinajpur</option>-->
-<!--                </select>-->
-<!--                <select class="form-select mt-2" aria-label="Default select example">-->
-<!--                    <option selected>Destination</option>-->
-<!--                    <option value="1">Dhaka</option>-->
-<!--                    <option value="2">Mohakhali</option>-->
-<!--                    <option value="3">Gabtoli</option>-->
-<!--                </select>-->
-<!--                <select class="form-select mt-2" aria-label="Default select example">-->
-<!--                    <option selected>Bus-Type</option>-->
-<!--                    <option value="1">iTen</option>-->
-<!--                    <option value="2">Double Dacker</option>-->
-<!--                    <option value="3">D54i</option>-->
-<!--                </select>-->
-                <button type="submit" class="btn btn-primary mt-2">Search</button>
-            </form>
-            <div class="row p-2 mt-3">
-                <marquee>সিট বুকিং এর ক্ষেত্রে হোল্ডিং প্রযোজ্য নয়। বুকিং ডেট চেঞ্জ করতে ১৮ ঘন্টা আগে বলতে হবে।</marquee>
-            </div>
-        </div>
-        <div class="col-7">
+        <div class="col-12">
             <div class="row mb-2">
                  <div class="col-sm-12">
-                     {% for x in travel %}
+                     {% for x in results %}
                      <div class="card mt-2">
                         <div class="card-body bg-light">
                             <div class="row card-title">
@@ -130,10 +105,11 @@
         </div>
     </div>
 </div>
-<script>
 
-</script>
+<!--{% for result in results %}-->
+    <!-- Display your search results here -->
+<!--    {{ result.departure }} - {{ result.destination }} - {{result.pnrNo}}-->
+<!--{% endfor %}-->
+
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 </html>
